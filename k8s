@@ -1,0 +1,62 @@
+Kubernetes ->
+
+# kubeclt api-reources --namespaced=true
+# kubeclt api-reources --api-group=extension
+
+#kubectl api-versions
+
+#curl -k http://127.0.0.1:8001
+
+#kubcelt get po -v=8   --> api information
+
+------------------------------------------------
+Namespace --> group the resouces -> UAT/SIT/PROD/DR
+
+#kubcelt create ns shailu_ns
+#kubget get ns
+
+#kubeclt lable ns shaulu_ns app=UAT     --> LABLE ASSING TO NAMESPACE
+#kubeclt lable ns shaulu_ns app=SIT --overwrite  --> lable overwirte
+
+#kubeclt lable ns --show-labels
+
+#kubeclt lable ns --label-columns=app,UAT,SIT
+
+#kubcelt create ns shailu_ns app-   --> remove lable from name spaces
+
+------------------------------------------------------
+kubeconfig file ->
+
+#kubcetl config currnet-context ---> to check currnet cluster
+
+#kubcetl config use-context my_cluster --> to choose cluster 
+
+#kubectl config set-context $(kubeclt config current-context) --namespace=default  --> to set defautl cluster
+
+-------------------------------
+Pod-
+
+#kubectl run nginx --image=nginx
+
+** we can not create deployment use run command
+
+#kubectl -n my_ns run nginx --image=nginx
+
+#kubectl -n my_ns run nginx --image=nginx --port=80
+
+#kubectl -n my_ns run nginx --image=nginx --env="DNS_DOMAIN=cluster"
+
+#kubectl -n my_ns run nginx --image=nginx --labels="app=web,env=prod"
+
+#kubectl -n my_ns run nginx --image=nginx --dry-run=client
+
+#kubectl -n my_ns run nginx --image=nginx --dry-run=client -o yaml > nginx.yaml
+
+#kubeclt create -f nignx.yaml
+#kubeclt apply -f nignx.yaml
+#kubeclt delete -f nignx.yaml
+
+#kubectl delete po mypod
+
+#kubeclt delete pod nginx --force --grace-period=o
+

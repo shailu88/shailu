@@ -1,26 +1,23 @@
 Kubernetes ->
 
-# kubeclt api-reources --namespaced=true
-# kubeclt api-reources --api-group=extension
+# kubectl api-resources --namespaced=true
+# kubectl api-resources --api-group=extension
 
 #kubectl api-versions
-
-#curl -k http://127.0.0.1:8001
-
 #kubcelt get po -v=8   --> api information
 
 ------------------------------------------------
 Namespace --> group the resouces -> UAT/SIT/PROD/DR
 
-#kubcelt create ns shailu_ns
+#kubclt create ns shailu_ns
 #kubget get ns
 
-#kubeclt lable ns shaulu_ns app=UAT     --> LABLE ASSING TO NAMESPACE
-#kubeclt lable ns shaulu_ns app=SIT --overwrite  --> lable overwirte
+#kubectl lable ns shaulu_ns app=UAT     --> LABLE ASSING TO NAMESPACE
+#kubectl lable ns shaulu_ns app=SIT --overwrite  --> lable overwirte
 
-#kubeclt lable ns --show-labels
+#kubectl lable ns --show-labels
 
-#kubeclt lable ns --label-columns=app,UAT,SIT
+#kubectl lable ns --label-columns=app,UAT,SIT
 
 #kubcelt create ns shailu_ns app-   --> remove lable from name spaces
 
@@ -31,7 +28,7 @@ kubeconfig file ->
 
 #kubcetl config use-context my_cluster --> to choose cluster 
 
-#kubectl config set-context $(kubeclt config current-context) --namespace=default  --> to set defautl cluster
+#kubectl config set-context $(kubectl config current-context) --namespace=default  --> to set defautl cluster
 
 -------------------------------
 Pod-
@@ -52,11 +49,10 @@ Pod-
 
 #kubectl -n my_ns run nginx --image=nginx --dry-run=client -o yaml > nginx.yaml
 
-#kubeclt create -f nignx.yaml
-#kubeclt apply -f nignx.yaml
-#kubeclt delete -f nignx.yaml
+#kubectl create -f nignx.yaml
+#kubectl apply -f nignx.yaml
+#kubectl delete -f nignx.yaml
 
 #kubectl delete po mypod
 
-#kubeclt delete pod nginx --force --grace-period=o
-
+#kubectl delete pod nginx --force --grace-period=o
